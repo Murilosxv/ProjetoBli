@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Definindo o conjunto de caracteres para UTF-8 e a responsividade da página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título da página, que aparece na aba do navegador -->
+    <title>Biblioteca Nova era</title>
+
+    <!-- Link para o arquivo de estilo CSS -->
+    <link rel="stylesheet" href="/css/acervo.css">
+    
+</head>
+
+<body>
+    <div class="app">
+        <!-- Sidebar (barra lateral) -->
+        <aside class="sidebar">
+            <!-- Logo da biblioteca -->
+            <div class="logo">
+                <img src="/images/Logo-BibliNovaEra-removebg-preview.png" alt="Logo Biblioteca Virtual"
+                    class="logo-img">
+            </div>
+
+            <!-- Navegação da sidebar -->
+            <nav class="side-nav">
+                <!-- Título para a seção de livros -->
+                <h3>Descubra seu Livro</h3>
+                <!-- Lista de links da sidebar -->
+                <ul>
+                    <li><a href="home.html" class="nav-link">Início</a></li>
+                    <li><a href="acervo.html" class="nav-link">Acervo</a></li>
+                </ul>
+
+                <!-- Título para a seção "Seu Acervo" -->
+                <h3>Seu Acervo</h3>
+                <!-- Lista de links adicionais para o acervo pessoal do usuário -->
+                <ul>
+                    <li><a href="Lista.html" class="nav-link">Seus downloads</a></li>
+
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content (Conteúdo principal da página) -->
+        <main class="main-content">
+            <header class="header">
+                <!-- Menu do usuário com ícone de perfil -->
+                <div class="user-menu">
+                    <img src="/images/logo-perfil.png" alt="User" id="info-image"  class="user-avatar">
+                    <div id="info-popup" class="popup">
+                        <p><strong>Nome:</strong> <span id="name"></span></p>
+                        <p><strong>E-mail:</strong> <span id="email"></span></p>
+                        <ul>
+                            <li><a href="adm.html">Administração</a></li>
+                          </ul>
+                          
+                        
+                      </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <div class="acervo-container">
+                <h1>Acervo</h1>
+                <p>
+                    Nosso acervo é repleto de conteúdo relevante para você. São milhares de
+                    livros à sua disposição, disponível em PDF.
+                </p>
+                <div class="barra-branca">
+                    <div class="filtro-container">
+                        <div class="filtro-item">
+                            <button class="filtro-botao" onclick="mostrarOpcoes('categoria')">CATEGORIA</button>
+                            <div id="categoria-filtro" class="opcoes-filtro"></div>
+                        </div>
+                        <div class="filtro-item">
+                            <button class="filtro-botao" onclick="mostrarOpcoes('editora')">EDITORA</button>
+                            <div id="editora-filtro" class="opcoes-filtro"></div>
+                        </div>
+                        <div class="filtro-item">
+                            <button class="filtro-botao" onclick="mostrarOpcoes('nota')">NOTA</button>
+                            <div id="nota-filtro" class="opcoes-filtro"></div>
+                        </div>
+                        <div class="filtro-item">
+                            <button class="filtro-botao" onclick="mostrarOpcoes('titulo')">TÍTULO</button>
+                            <div id="titulo-filtro" class="opcoes-filtro"></div>
+                        </div>
+                    </div>
+                </div>
+
+    <!-- Books Grid -->
+    <div class="book-container">
+            <div class="book-card" data-categoria="matematica" data-editora="Editora X" data-nota="4">
+                <img src="/images/calculo-integral.png" alt="Cálculo Integral" class="book-cover">
+                <div class="book-info">
+                    <h3>Cálculo Integral</h3>
+                    <p class="author">Lorem Ipsum</p>
+                    <div class="rating">★★★★☆</div>
+                </div>
+            </div>
+
+
+            <div class="book-container">
+                <div class="book-card" data-categoria="matematica" data-editora="Editora X" data-nota="4">
+                    <img src="/images/calculo-integral.png" alt="Cálculo Integral" class="book-cover">
+                    <div class="book-info">
+                        <h3>Cálculo Integral</h3>
+                        <p class="author">Lorem Ipsum</p>
+                        <div class="rating">★★★★☆</div>
+                    </div>
+                </div>
+            
+                <div class="book-card" data-categoria="educacao" data-editora="Editora Y" data-nota="4">
+                    <img src="/images/didatico-metodos.png" alt="Didática e Métodos de Ensino" class="book-cover">
+                    <div class="book-info">
+                        <h3>Didática e Métodos de Ensino</h3>
+                        <p class="author">Maria Lucia Estivallet</p>
+                        <div class="rating">★★★★☆</div>
+                    </div>
+                </div>
+                
+                <div class="book-card" data-categoria="saude" data-editora="Editora Z" data-nota="4">
+                    <img src="/images/enfermagem-unidade.png" alt="Enfermagem em Unidade de Saúde" class="book-cover">
+                    <div class="book-info">
+                        <h3>Enfermagem em Unidade de Saúde</h3>
+                        <p class="author">Cátia Millene Dell</p>
+                        <div class="rating">★★★★☆</div>
+                    </div>
+                </div>
+            
+                <div class="book-card" data-categoria="psicologia" data-editora="Editora ABC" data-nota="4">
+                <img src="/images/Fundamentos-Neuropsicopedagogia.png" alt="Fundamentos da Neuropsicopedagogia" class="book-cover">
+                <div class="book-info">
+                    <h3>Fundamentos da Neuropsicopedagogia</h3>
+                    <p class="author">Raphael Moroz Teixeira</p>
+                    <div class="rating">★★★★☆</div>
+                </div>
+            </div>
+            
+            <div class="book-card" data-categoria="historia" data-editora="Editora XYZ" data-nota="4">
+                <img src="/images/historias-memorias.png" alt="Histórias e Memórias" class="book-cover">
+                <div class="book-info">
+                    <h3>Histórias e Memórias da...</h3>
+                    <p class="author">Raphael Moroz Teixeira</p>
+                    <div class="rating">★★★★☆</div>
+                </div>
+            </div>
+            
+        <!-- Repeat similar book cards for other books -->
+        <!-- You can copy the book card structure above and change the image, title, author, and rating -->
+    </div>
+        </main>
+    <script src="/JS/perfil.js"></script>
+    <script src="/JS/filtro.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+:root {
+  --primary-color: #0066cc;
+  --secondary-color: #f5f5f7;
+  --text-primary: #ffffff;
+  --text-dif: #575757;
+  --text-secondary: #464646;
+  --sidebar-width: 250px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--secondary-color);
+  
+  /* Impede a rolagem horizontal */
+} 
+
+/* Sidebar Styles */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: white;
+  padding: 32px;
+  position: fixed;
+  height: 100vh;
+  margin-right: 10px;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+}
+.logo {
+  margin-bottom: 2rem;
+}
+
+.logo-img {
+  width: 150px;
+  height: auto;
+}
+
+.side-nav h3 {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 1.5rem 0 0.5rem;
+}
+
+.side-nav ul {
+  list-style: none;
+}
+
+.nav-link {
+  /* Aqui da para ver a primeira cor que aparece nos link da nav */
+  color: var(--text-dif);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  display: block;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  /* Aqui da para ver a segunda cor que aparece nos link da nav */
+  color: var(--primary-color);
+}
+
+.main-content {
+  background-image: url('/images/fundo.jpg');
+  background-size: cover;
+  /* Faz a imagem de fundo cobrir toda a área */
+  background-repeat: no-repeat;
+  background-position: center;
+  /* Centraliza a imagem de fundo */
+  width: 100%;
+  /* Define a largura como 100% do contêiner */
+  height: 700px;
+  /* Define a altura fixa */
+  flex: 1;
+  
+}
+
+
+
+.page-header{
+
+
+}
+
+.page-title {
+color: white;
+font-size: 24px;
+margin-bottom: 8px;
+}
+
+.page-subtitle {
+color: rgba(255, 255, 255, 0.8);
+font-size: 16px;
+}
+
+      .search-container {
+        display: flex;
+        gap: px;
+        margin-top:50px;
+        justify-content: center;
+      }
+
+      .search-input {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        width: 265px;   
+      }
+
+      .books-grid {
+        display: flex;
+        
+      }
+
+.book-card {
+  width: 250px;
+  /* Define a largura do elemento como 250 pixels */
+  background-color: rgba(255, 255, 255, 0);
+  /* Define a cor de fundo como transparente */
+  border-radius: 10px;
+  /* Aplica bordas arredondadas */
+  text-align: center;
+  /* Centraliza o texto */
+  padding: 15px;
+  /* Adiciona um espaço interno */
+  margin: 20px;
+  /* Define uma margem externa */
+  scroll-snap-align: center;
+  /* Faz com que os itens se alinhem no centro */
+  margin-left: 300px;
+
+}
+
+      .book-add {
+        border: 2px dashed #ccc;
+        cursor: pointer;
+      }
+
+      .book-add-icon {
+        color: #ff4444;
+        font-size: 48px;
+        margin-bottom: 16px;
+      }
+
+      .book-cover {
+        width: 101%;
+        /* Faz a imagem ocupar toda a largura do card */
+        height: 300px;
+        /* Ajusta a imagem para preencher o espaço sem distorção */
+        object-position: center;
+        /* Centraliza a imagem */
+      }
+
+      .book-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: #1f2937;
+        margin-bottom: 8px;
+      }
+
+      .book-author {
+        font-size: 14px;
+        color:  #6b7280;
+      }
+
+      .book-rating {
+        color: #fbbf24;
+        font-size: 14px;
+        margin-top: 8px;
+      }
+
+      .book-format {
+        background-color: #3b82f6;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        margin-top: 8px;
+      }
+
+.header {
+display: flex;
+justify-content: flex-end;
+margin-bottom: 2rem;
+        
+}
+      
+.user-avatar {
+width: 40px;
+height: 40px;
+border-radius: 50%;
+cursor: pointer;
+z-index: 1;
+margin-left: -300px;
+}
+/* Estilo do popup */
+.popup {
+  position: absolute;
+  top: 120px;
+  left: 1000px;
+  background: rgba(31, 29, 29, 0.11);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 8px;
+  display: none;
+  z-index: 10;
+  width: 250px;
+  text-align: center;
+}
+
+.popup.active {
+  display: block;
+}
+
+/* Estilo dos textos */
+.popup p {
+  margin: 10px 0;
+}

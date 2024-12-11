@@ -1,6 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'; 
 import Login from '../views/Login.vue'; 
-import Dashboard from '../views/Dashboard.vue'; 
+import Cadastro from '../views/cadastro.vue';
+import Home from '../views/Home.vue'; 
+import Lista from '../views/Lista.vue';
+import BookCrud from '@/views/BookCrud.vue'; 
+
 
 const routes = [
   {
@@ -9,10 +13,25 @@ const routes = [
     component: Login,
   },
   {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: Dashboard,
+    path: '/cadastro',
+    name: 'Cadastro',
+    component: Cadastro,
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home,
     meta: { requiresAuth: true },
+  },
+  {
+    path: '/lista',
+    name: 'Lista',
+    component: Lista,
+  },
+  {
+    path: '/bookCrud',
+    name: 'BookCrud',
+    component: BookCrud,
   },
   {
     path: '/:catchAll(.*)', // Usando a nova sintaxe para rotas coringa

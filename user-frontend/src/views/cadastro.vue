@@ -1,0 +1,228 @@
+<template>
+  <div class="container">
+    <!-- Imagem de fundo -->
+    <img src="../assets/images/img_tablet.jpg" alt="Background" class="header-background" />
+
+    <!-- Texto de boas-vindas -->
+    <div class="welcome-message">Bem-vindo à Biblioteca Nova Era!</div>
+
+    <!-- Logo da Biblioteca -->
+    <img src="../assets/images/Logo-BibliNovaEra-removebg-preview.png" alt="Logo da Biblioteca" class="img-logo" />
+
+    <!-- Caixa de Cadastro -->
+    <div class="login-card">
+      <span class="login-title">Cadastro</span>
+      <span class="login-subtitle">Identifique-se para prosseguir</span>
+
+      <!-- Formulário de Cadastro -->
+      <form @submit.prevent="submitForm">
+        <div class="input-group">
+          <label for="username" class="input-label">Email:</label>
+          <input type="text" id="username" class="input-field" v-model="username" placeholder="Digite seu Email" required />
+          <div id="username-error" class="error-message">{{ usernameError }}</div>
+        </div>
+
+        <div class="input-group">
+          <label for="password" class="input-label">Senha</label>
+          <input type="password" id="password" class="input-field" v-model="password" placeholder="Digite sua senha" required />
+          <div id="password-error" class="error-message">{{ passwordError }}</div>
+        </div>
+
+        <button id="submit-button" class="login-button" type="submit">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+</template>
+
+<script>
+import api from '../axios'; // Ajuste o caminho de importação conforme necessário
+
+export default {
+  data() {
+    return {
+      username: "",
+      password: "",
+      usernameError: "",
+      passwordError: "",
+    };
+  },
+  methods: {
+    validateUsername(username) {
+      // Valida que o nome de usuário não seja vazio e tenha ao menos 3 caracteres
+      return username.length >= 3;
+    },
+    async submitForm() {
+  this.usernameError = "";
+  this.passwordError = "";
+
+  let isValid = true;
+
+  if (!this.validateUsername(this.username)) {
+    this.usernameError = "O nome de usuário deve ter ao menos 3 caracteres.";
+    isValid = false;
+  }
+
+  if (this.password.length < 6) {
+    this.passwordError = "A senha deve ter no mínimo 6 caracteres.";
+    isValid = false;
+  }
+
+  if (isValid) {
+    try {
+      // Envia a solicitação para o endpoint de cadastro com o nome de usuário e senha
+      await api.post('/auth/register', {
+        username: this.username,
+        password: this.password
+      });
+      alert('Cadastro realizado com sucesso!');
+      // Redireciona para a página de login
+      this.$router.push('/login');
+    } catch (error) {
+      // Tratar erros de API
+      if (error.response) {
+        this.usernameError = error.response.data.error || "Erro desconhecido ao registrar.";
+      } else {
+        this.usernameError = 'Erro ao registrar: ' + error.message;
+      }
+    }
+  }
+}
+
+  }
+};
+</script>
+  
+  <style scoped>
+  @import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+  
+  * {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f4f4; /* Cor de fundo do corpo */
+}
+
+.container {
+  position: relative; /* Este 'relative' permite que as imagens sejam posicionadas em relação a este contêiner */
+  width: 100%; /* Define a largura da .container como 100% da largura da tela ou do elemento pai */
+  height: 100vh; /* Define a altura da .container como 100% da altura da viewport (tela) */
+  display: flex; /* Define o layout da .container como flexbox (para usar as propriedades de layout flex) */
+  justify-content: center; /* Alinha os itens dentro da .container no eixo horizontal (eixo X) no centro */
+  align-items: center; /* Alinha os itens dentro da .container no eixo vertical (eixo Y) no centro */
+  flex-direction: column; /* Organiza os itens dentro da .container em uma coluna (verticalmente) */
+  }
+
+.header-background {
+  width: 100%;
+  height: 395px;
+  object-fit: cover; 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+}
+
+.img-logo {
+  position: relative;
+  display: flex;
+  width: 500px;
+  height: 300px;
+  top: 0px ;
+  left: -440px;
+  transform: translate(-50%, -50%); 
+  z-index: 1;
+}
+
+.welcome-message {
+  position: absolute;
+  width: 350px;
+  top: 28%;  /* Alinha o texto verticalmente no centro */
+  left: 21%; /* Alinha o texto horizontalmente no centro */
+  transform: translate(-50%, -50%); /* Corrige o alinhamento exato no centro */
+  color: white; /* Cor do texto */
+  font-size: 36px; /* Tamanho da fonte */
+  font-weight: bold; /* Estilo da fonte */
+}
+
+.login-card {
+  width: 576px;
+  top: -10%;
+  background: white;
+  padding: 40px;
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  position: relative;
+  left: 400px;
+}
+
+.login-title {
+  color: #55A8FD;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.login-subtitle {
+  color: #707070;
+  font-size: 18px;
+  margin-bottom: 30px;
+  text-align: center; /* Centraliza o subtítulo */
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-field {
+  width: 100%;
+  height: 52px;
+  font-size: 15px;
+  padding: 10px;
+  border: 1px solid hsl(0, 0%, 89%);
+  border-radius: 4px;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 228px;
+  right: 60px;
+  color: #303942;
+  cursor: pointer;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-top: 5px;
+}
+
+.forgot-password a {
+  color: #55A8FD;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.login-button {
+  width: 100%;
+  height: 48px;
+  background: #55A8FD;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  </style>
+  

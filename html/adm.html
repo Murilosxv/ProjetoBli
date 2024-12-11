@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca Virtual</title>
+    <link rel="stylesheet" href="/css/adm.css">
+  </head>
+  <body>
+    <aside class="sidebar">
+        <!-- Logo da biblioteca -->
+        <div class="logo">
+            <img src="/images/Logo-BibliNovaEra-removebg-preview.png" alt="Logo Biblioteca Virtual"
+                class="logo-img">
+        </div>
+
+        <!-- Navegação da sidebar -->
+        <nav class="side-nav">
+            <!-- Título para a seção de livros -->
+            <h3>Descubra seu Livro</h3>
+            <!-- Lista de links da sidebar -->
+            <ul>
+                <li><a href="home.html" class="nav-link">Início</a></li>
+                <li><a href="acervo.html" class="nav-link">Acervo</a></li>
+            </ul>
+
+            <!-- Título para a seção "Seu Acervo" -->
+            <h3>Seu Acervo</h3>
+            <!-- Lista de links adicionais para o acervo pessoal do usuário -->
+            <ul>
+                <li><a href="Lista.html" class="nav-link">Seus Livros</a></li>
+
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <!-- Menu do usuário com ícone de perfil -->
+            <div class="user-menu">
+                <img src="/images/logo-perfil.png" alt="User" id="info-image"  class="user-avatar">
+                <div id="info-popup" class="popup">
+                    <p><strong>Nome:</strong> <span id="name"></span></p>
+                    <p><strong>E-mail:</strong> <span id="email"></span></p>
+                    <ul>
+                        <li><a href="adm.html">Administração</a></li>
+                      </ul>
+                  </div>
+            </div>
+        </header>
+      <div class="page-header">
+        <h1 class="page-title">Página de administração</h1>
+        <p class="page-subtitle">Adicione, altere ou delete livros</p>
+      </div>
+
+      <div class="search-container">
+        <input type="search" class="search-input" placeholder="Encontre livros para editar ou deletar">
+
+      </div>
+
+      <div class="books-grid">
+        <div class="book-card book-add">
+          <div class="book-add-icon">+</div>
+          <h3 class="book-title">Adicione o nome do livro</h3>
+          <p class="book-author">Adicione autor e editora</p>
+          <div class="book-rating">(0)</div>
+        </div>
+
+        <div class="book-card">
+          <h3 class="book-title">Didática e métodos de ensino de língua inglesa</h3>
+          <p class="book-author">Maria Lucia Estivallet de Mesquita</p>
+          <div class="book-rating">★★★★★ (7)</div>
+        </div>
+
+      </div>
+    </main>
+
+    <div class="user-avatar"></div>
+    <script src="/JS/perfil.js"></script>
+  </body>
+</html>
